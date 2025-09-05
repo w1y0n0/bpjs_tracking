@@ -1,9 +1,36 @@
 <?php
+// Fungsi untuk load file .env ke environment
+function loadEnv($path)
+{
+    if (!file_exists($path)) {
+        return;
+    }
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) {
+            continue; // skip komentar
+        }
+
+        list($name, $value) = explode('=', $line, 2);
+        $name = trim($name);
+        $value = trim($value);
+
+        // Set ke environment
+        putenv("$name=$value");
+        $_ENV[$name] = $value;
+        $_SERVER[$name] = $value;
+    }
+}
+
+// Load .env dari root project
+loadEnv(__DIR__ . '/../.env');
+
 // Database Configuration
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'bpjs_tracking');
+define('DB_HOST', getenv('DB_HOST')); // ambil dari file .env
+define('DB_USERNAME', getenv('DB_USERNAME')); // ambil dari file .env
+define('DB_PASSWORD', getenv('DB_PASSWORD')); // ambil dari file .env
+define('DB_NAME', getenv('DB_NAME')); // ambil dari file .env
 
 // Application Configuration
 define('APP_NAME', 'BPJS Tracking');
