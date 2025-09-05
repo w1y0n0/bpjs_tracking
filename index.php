@@ -31,7 +31,7 @@ $page_title = 'BPJS Tracking';
                         <i class="fas fa-users-cog fa-5x text-primary mb-4"></i>
                         <h1 class="display-4 text-white mb-3"><?php echo APP_NAME; ?></h1>
                         <p class="lead text-white-50">
-                            Sistem manajemen progress BPJS untuk pegawai dan administrator
+                            Kelola dan pantau progress pendaftaran BPJS anggota keluarga Anda dengan mudah
                         </p>
                     </div>
 
