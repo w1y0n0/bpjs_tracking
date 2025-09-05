@@ -1,0 +1,278 @@
+/* Custom Styles for Employee Progress System */
+
+:root {
+    --primary-color: #2c5f7c;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #1e4a63;
+    border-color: #1e4a63;
+}
+
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 15px;
+}
+
+.table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(44, 95, 124, 0.05);
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(44, 95, 124, 0.25);
+}
+
+.progress-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+    position: relative;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-circle.completed {
+    background-color: var(--success-color);
+}
+
+.step-circle.current {
+    background-color: var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+.step-circle.pending {
+    background-color: var(--secondary-color);
+}
+
+.step-circle.failed {
+    background-color: var(--danger-color);
+}
+
+.step-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    max-width: 100px;
+    line-height: 1.2;
+}
+
+.step-line {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    right: -50%;
+    height: 3px;
+    background-color: #dee2e6;
+    z-index: 1;
+}
+
+.progress-step:last-child .step-line {
+    display: none;
+}
+
+.step-line.completed {
+    background-color: var(--success-color);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(44, 95, 124, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(44, 95, 124, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(44, 95, 124, 0);
+    }
+}
+
+.badge {
+    font-size: 0.8em;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.search-box {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e4a63 100%);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.filter-buttons {
+    margin-bottom: 20px;
+}
+
+.filter-buttons .btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.status-filters {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: 500;
+}
+
+.reason-input {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .progress-timeline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .progress-step {
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
+    
+    .step-circle {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+    
+    .step-line {
+        display: none;
+    }
+    
+    .step-label {
+        text-align: left;
+        max-width: none;
+    }
+    
+    .filter-buttons .btn {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .checkbox-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
